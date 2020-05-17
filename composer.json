@@ -1,0 +1,43 @@
+{
+    "name": "hello-one/socialite",
+    "description": "Use your hello one guest list as a Laravel Social Auth Provider",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefan Gotre",
+            "email": "pool@teraone.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.3",
+        "ext-json": "*",
+        "laravel/framework": ">5.6"
+    },
+    "require-dev": {
+        "psr/log": "^1.1",
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "HelloOne\\Laravel\\Socialite\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HelloOne\\Laravel\\Socialite\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "\\HelloOne\\Laravel\\Socialite\\SocialiteServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test" : "vendor/bin/phpunit --configuration phpunit.xml"
+    }
+}
