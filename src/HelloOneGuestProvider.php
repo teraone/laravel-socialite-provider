@@ -23,7 +23,7 @@ class HelloOneGuestProvider extends AbstractProvider implements ProviderInterfac
      * {@inheritdoc}
      */
     protected function getTokenFields( $code ) {
-        return array_add(
+        return \Arr::add(
             parent::getTokenFields( $code ), 'grant_type', 'authorization_code'
         );
     }
@@ -33,7 +33,7 @@ class HelloOneGuestProvider extends AbstractProvider implements ProviderInterfac
      */
     protected function getAuthUrl( $state ) {
         return $this->buildAuthUrlFromBase(
-            config( 'hello-one-socialite.project_url' ) .
+            rtrim(config( 'hello-one-socialite.project_url' ), '/').
             '/oauth/authorize',
             $state );
     }

@@ -14,12 +14,6 @@ class SocialiteServiceProvider extends ServiceProvider {
      */
     public function register() {
         $this->mergeConfigFrom( __DIR__ . '/../config/hello-one-socialite.php', 'hello-one-socialite' );
-
-        $this->app->make( LoginController::class );
-
-        $this->registerRoutes();
-
-
     }
 
     /**
@@ -28,7 +22,7 @@ class SocialiteServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
-        $this->bootSpotifySocialite();
+        $this->bootSocialite();
 
         if ( $this->app->runningInConsole() ) {
             $this->publishes( [
@@ -38,23 +32,7 @@ class SocialiteServiceProvider extends ServiceProvider {
         }
     }
 
-    protected function registerRoutes() {
-        if ( config( 'hello-one-socialite.routes.publish', true ) ) {
-            Route::group( $this->routeConfiguration(), function () {
-                $this->loadRoutesFrom( __DIR__ . '../../routes/web.php' );
-            } );
-        }
-
-    }
-
-    protected function routeConfiguration() {
-        return [
-            'middleware' => config( 'hello-one-socialite.routes.middleware' ),
-            'prefix'     => config( 'hello-one-socialite.routes.prefix' ),
-        ];
-    }
-
-    private function bootSpotifySocialite()
+    private function bootSocialite()
     {
         $socialite = $this->app->make('Laravel\Socialite\Contracts\Factory');
         $socialite->extend(
@@ -63,7 +41,10 @@ class SocialiteServiceProvider extends ServiceProvider {
                 $config = [
                     'client_id' => $app['config']['hello-one-socialite.client_id'],
                     'client_secret' => $app['config']['hello-one-socialite.client_secret'],
-                    'redirect' =>  $app['config']['hello-one-socialite.login_url']
+                    'redirect' =>  $app['config']['hello-one-socialite.redirect'],
+                    'scopes' => [
+                        'account:read'
+                    ]
                 ];
                 return $socialite->buildProvider(HelloOneGuestProvider::class, $config);
             }
