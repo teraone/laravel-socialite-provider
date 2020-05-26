@@ -29,7 +29,7 @@ Use your [hello one](https://www.hello-one.de) guest list as a login provider fo
     Or publish the configuration
 
     ```shell script
-    php artisan vendor:publish --tags 'hello-one-socialite'
+    php artisan vendor:publish --tag 'hello-one-socialite'
     ```
     and edit  `config/hello-one-socialite.php` accordingly.
     
