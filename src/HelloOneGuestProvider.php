@@ -43,7 +43,7 @@ class HelloOneGuestProvider extends AbstractProvider implements ProviderInterfac
      */
     protected function getUserByToken( $token ) {
         $response = $this->getHttpClient()->get(
-            config( 'hello-one-socialite.project_url' ) . '/oauth/me',
+            config( 'hello-one-socialite.project_url' ) . '/api/oauth/me',
             [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $token,
