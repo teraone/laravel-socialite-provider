@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'redirect' => env('HELLO_ONE_SOCIALITE_REDIRECT', 'https://your-laravel-app.example.com/hello-one/callback'),
+    'redirect' => env('HELLO_ONE_SOCIALITE_CLIENT_REDIRECT', 'https://your-laravel-app.example.com/hello-one/callback'),
 
 
     /*

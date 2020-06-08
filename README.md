@@ -29,7 +29,7 @@ Use your [hello one](https://www.hello-one.de) guest list as a login provider fo
     Or publish the configuration
 
     ```shell script
-    php artisan vendor:publish --tags 'hello-one-socialite'
+    php artisan vendor:publish --tag 'hello-one-socialite'
     ```
     and edit  `config/hello-one-socialite.php` accordingly.
     
@@ -48,7 +48,7 @@ Use your [hello one](https://www.hello-one.de) guest list as a login provider fo
      */
     public function redirectToProvider(\Illuminate\Http\Request $request)
     {
-       return Socialite::driver('hello-one-guest')
+       return \Socialite::driver('hello-one-guest')
            ->stateless()
            ->scopes(['account:read'])
            ->redirect();
@@ -62,7 +62,7 @@ Use your [hello one](https://www.hello-one.de) guest list as a login provider fo
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('hello-one-guest')
+        $user = \Socialite::driver('hello-one-guest')
             ->stateless()
             ->scopes(['account:read'])
             ->user();
