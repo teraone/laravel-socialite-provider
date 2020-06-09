@@ -58,12 +58,30 @@ class HelloOneGuestProvider extends AbstractProvider implements ProviderInterfac
      * {@inheritdoc}
      */
     protected function mapUserToObject( array $user ) {
+        $userData = $user['data'];
         return ( new User )->setRaw( $user )->map( [
-            'id'       => $user['id'],
-            'nickname' => $user['first_name'] . ' ' . $user['last_name'],
-            'name'     => $user['first_name'] . ' ' . $user['last_name'],
-            'avatar'   => ! empty( $user['profile_image_url'] ) ? $user['profile_image_url'] : null,
-        ] );
+            'id'       => $userData['id'],
+            'project_id' => $userData['project_id'],
+            'email' => $userData['email'],
+            'salutation' => $userData['salutation'],
+            'first_name' => $userData['first_name'],
+            'last_name' => $userData['last_name'],
+            'company' => $userData['company'],
+            'phone' => $userData['phone'],
+            'mobile_phone' => $userData['mobile_phone'],
+            'street' => $userData['street'],
+            'house_number' => $userData['house_number'],
+            'zip' => $userData['zip'],
+            'city' => $userData['city'],
+            'country' => $userData['country'],
+            'custom_fields' => $userData['custom_fields'],
+            'email_verified_at' => $userData['email_verified_at'],
+            'audience_ids' => $userData['audience_ids'],
+            'audiences' => $userData['audiences'],
+            'event_ids' => $userData['event_ids'],
+            'events' => $userData['events'],
+            'profile_image_uuid' => $userData['profile_image_uuid'],
+            'profile_image_url' => $userData['profile_image_url'],] );
     }
 
 }
