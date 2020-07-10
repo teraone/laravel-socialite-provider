@@ -74,7 +74,6 @@ class HelloOneGuestProvider extends AbstractProvider implements ProviderInterfac
             'zip' => $userData['zip'],
             'city' => $userData['city'],
             'country' => $userData['country'],
-            'custom_fields' => $userData['custom_fields'],
             'email_verified_at' => $userData['email_verified_at'],
             'audience_ids' => $userData['audience_ids'],
             'audiences' => $userData['audiences'],
