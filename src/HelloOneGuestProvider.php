@@ -77,8 +77,8 @@ class HelloOneGuestProvider extends AbstractProvider implements ProviderInterfac
             'email_verified_at' => $userData['email_verified_at'],
             'audience_ids' => $userData['audience_ids'],
             'audiences' => $userData['audiences'],
-            'event_ids' => $userData['event_ids'],
-            'events' => $userData['events'],
+            'event_ids' => (array_key_exists('event_ids', $userData) ? $userData['event_ids'] : null),
+            'events' => (array_key_exists('events', $userData) ? $userData['events'] : null),
             'profile_image_uuid' => $userData['profile_image_uuid'],
             'profile_image_url' => $userData['profile_image_url'],] );
     }
