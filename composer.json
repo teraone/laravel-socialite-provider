@@ -11,11 +11,11 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.3|>=8.0",
+        "php": ">=8.0",
         "ext-json": "*",
         "laravel/framework": ">5.6",
-        "laravel/socialite": "^4.3",
-        "socialiteproviders/manager": "^3.5"
+        "laravel/socialite": "^5.11",
+        "socialiteproviders/manager": "^4.0"
     },
     "require-dev": {
         "psr/log": "^1.1",
